@@ -1,0 +1,10 @@
+/* Import logo font */
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap'); 
+
+
+.nav__logo {
+    font-family: "Pacifico", cursive;
+    font-weight: 400;
+    font-size: 30px !important;
+    font-style: normal;
+}
