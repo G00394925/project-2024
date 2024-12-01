@@ -38,5 +38,8 @@
 }
 
 .card-container {
-  
+  display: flex; /* Flex layout allows for display of elements next to each other */
+  flex-wrap: wrap; /* Cards are place on new row if there's not enough column space */
+  gap: 10px;
 }
+
