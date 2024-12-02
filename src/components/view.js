@@ -19,8 +19,7 @@ const data = [
         "Year": "2024",
         "Artist": "Billie Eilish",
         "Cover": "https://upload.wikimedia.org/wikipedia/en/thumb/a/aa/Billie_Eilish_-_Hit_Me_Hard_and_Soft.png/220px-Billie_Eilish_-_Hit_Me_Hard_and_Soft.png"
-    },
-    
+    }, 
 ]
 
 const View = () => {
