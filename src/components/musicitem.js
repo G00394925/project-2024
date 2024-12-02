@@ -9,12 +9,12 @@ const MusicItem = (props) => {
  
     return(
         <Card className="bg-secondary" style={{ color: '#c7c7c7', width: '16rem', margin: '10px'}}>
-            <img src={props.mymusic.Cover} alt={props.mymusic.Title}></img>
-            <Card.Title style={{ marginLeft: '5px'}}>{props.mymusic.Title}</Card.Title>
+            <img src={props.mymusic.cover} alt={props.mymusic.title}></img>
+            <Card.Title style={{ marginLeft: '5px'}}>{props.mymusic.title}</Card.Title>
             <Card.Subtitle style={{ marginLeft: '5px'}}>
-                {props.mymusic.Artist} 
+                {props.mymusic.artist} 
                 <br/>
-                {props.mymusic.Year}
+                {props.mymusic.year}
             </Card.Subtitle>
         </Card>
     )

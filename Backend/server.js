@@ -43,7 +43,7 @@ app.post('/api/music', async (req, res)=>{
     const newMusic = new musicModel({title, year, artist, cover})
     await newMusic.save();
 
-    res.status(201).json({message: 'Album created', Music:newMusic});
+    res.status(201).json({message: 'Album created', music:newMusic});
 })
 
 app.listen(port, () => {
