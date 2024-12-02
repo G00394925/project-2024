@@ -9,8 +9,8 @@ const Create = () => {
     const [cover, setCover] = useState('')
 
     const handleSubmit = (e) => {
-        e.preventDefault();
-        const music = {title, year, artist, cover};
+        e.preventDefault(); 
+        const music = {title, year, artist, cover}; 
         console.log(music)
         axios.post('http://localhost:4000/api/music', music)
             .then((res) => {console.log(res.data)})

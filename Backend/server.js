@@ -36,6 +36,7 @@ app.get('/api/music', async(req, res) => {
     res.status(200).json({music})
 })
 
+// Creation of new album
 app.post('/api/music', async (req, res)=>{
     console.log(req.body.title);
 
