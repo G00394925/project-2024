@@ -31,31 +31,20 @@ const musicSchema = new mongoose.Schema({
 
 const musicModel = new mongoose.model('mymusic', musicSchema);
 
-const data = [
-    {
-        "Title": "Appetite for Destruction",
-        "Year": "1987",
-        "Artist": "Guns N' Roses",
-        "Cover": "https://upload.wikimedia.org/wikipedia/en/thumb/6/60/GunsnRosesAppetiteforDestructionalbumcover.jpg/220px-GunsnRosesAppetiteforDestructionalbumcover.jpg"
-    },
-    {
-        "Title": "Brat",
-        "Year": "2024",
-        "Artist": "Charli xcx",
-        "Cover": "https://th.bing.com/th?id=ODL.948b1fe1bf9a60d358c71e69080a120c&w=200&h=200&c=12&rs=1&qlt=99&pcl=faf9f7&o=6&pid=23.1"
-    },
-    {
-        "Title": "Hit Me Hard and Soft",
-        "Year": "2024",
-        "Artist": "Billie Eilish",
-        "Cover": "https://upload.wikimedia.org/wikipedia/en/thumb/a/aa/Billie_Eilish_-_Hit_Me_Hard_and_Soft.png/220px-Billie_Eilish_-_Hit_Me_Hard_and_Soft.png"
-    }, 
-]
+app.get('/api/music', async(req, res) => {
+    const music = await musicModel.find({});
+    res.status(200).json({music})
+})
 
-app.get('/api/music', async (req, res) => {
-    // const music = await musicModel.find({});
-    res.status(200).json({data});
-});
+app.post('/api/music', async (req, res)=>{
+    console.log(req.body.title);
+
+    const {title, year, artist, cover} = req.body;
+    const newMusic = new musicModel({title, year, artist, cover})
+    await newMusic.save();
+
+    res.status(201).json({message: 'Album created', Music:newMusic});
+})
 
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);

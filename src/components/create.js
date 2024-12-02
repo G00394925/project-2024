@@ -12,7 +12,6 @@ const Create = () => {
         e.preventDefault();
         const music = {title, year, artist, cover};
         console.log(music)
-
         axios.post('http://localhost:4000/api/music', music)
             .then((res) => {console.log(res.data)})
             .catch()
@@ -21,7 +20,7 @@ const Create = () => {
     return(
         <div margin>
             <h1>This is where the music is created</h1>
-            <form class="card m-4 mx-auto login-styling bg-secondary" style={{width: 400, padding: 25}}>
+            <form onSubmit={handleSubmit} className="card m-4 mx-auto login-styling bg-secondary" style={{width: 400, padding: 25}}>
 
                 <div className="form-group">
                     <label style={{marginTop: 10}}>Add Album Title: </label>
