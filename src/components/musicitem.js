@@ -22,10 +22,10 @@ const MusicItem = (props) => {
             })
     }
     return(
-        <Card className="bg-secondary" style={{ color: '#c7c7c7', width: '16rem', margin: '10px', padding: 2}}>
+        <Card className="bg-secondary" style={{ color: '#c7c7c7', width: '16rem', margin: 10, padding: 2}}>
             <img src={props.mymusic.cover} alt={props.mymusic.title} style={{borderRadius: 5}}></img>
-            <Card.Title style={{ marginLeft: '5px'}}>{props.mymusic.title}</Card.Title>
-            <Card.Subtitle style={{ marginLeft: '5px'}}>
+            <Card.Title style={{ marginLeft: 5, marginTop: 5}}>{props.mymusic.title}</Card.Title>
+            <Card.Subtitle style={{ marginLeft: 5}}>
                 {props.mymusic.artist} 
                 <br/>
                 {props.mymusic.year}
