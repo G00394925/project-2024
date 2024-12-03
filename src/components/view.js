@@ -6,7 +6,20 @@ const View = () => {
 
     const [music, setMusic] = useState([]);
 
+    // Gets object data from server and updates the state 
+    const ReloadData = () => { 
+        axios.get('http://localhost:4000/api/music')
+          .then((response) => {
+            console.log(response.data);
+            setMusic(response.data.music);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      }
+
     useEffect(() => {
+        ReloadData();
         axios.get('http://localhost:4000/api/music') // Retrieve music from api
             .then((response) => {
                 console.log(response.data)
@@ -19,7 +32,7 @@ const View = () => {
     return(
         <div style={{marginLeft: 15}}>
             <br/>
-            <Music mymusic={music} />
+            <Music mymusic={music} ReloadData = {ReloadData}/>
         </div>
     );
 }

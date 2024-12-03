@@ -60,6 +60,13 @@ app.put('/api/music/:id', async (req, res) => {
     res.send(music);
 });
 
+// Handle delete requests
+app.delete('/api/music/:id', async (req, res) => {
+    console.log('Deleting album with ID: ' + req.params.id);
+    const music = await musicModel.findByIdAndDelete(req.params.id)
+    res.status(200).send({ message: "Album has been removed from database", music})
+})
+
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
 });
