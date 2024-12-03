@@ -1,5 +1,7 @@
 import { useEffect } from "react";
 import Card from "react-bootstrap/Card";
+import { Link } from "react-router-dom";
+import Button from "react-bootstrap/Button";
 
 const MusicItem = (props) => {
 
@@ -16,6 +18,10 @@ const MusicItem = (props) => {
                 <br/>
                 {props.mymusic.year}
             </Card.Subtitle>
+            <div class="btn-group">
+                <Link className="btn" to={"/editMusic/" + props.mymusic._id} style={{margin:10, padding: 5, color: 'white', borderColor: 'black', backgroundColor:'#2f353b'}}>Edit</Link>
+                <Button className="btn btn-danger" style={{margin: 10, padding: 5}}>Delete</Button>
+            </div>
         </Card>
     )
 }

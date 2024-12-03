@@ -54,6 +54,7 @@ app.get('/api/music/:id', async (req, res) => {
     res.send(music);
 });
 
+// Update object with edited details
 app.put('/api/music/:id', async (req, res) => {
     let music = await musicModel.findByIdAndUpdate(req.params.id, req.body, { new: true });
     res.send(music);
