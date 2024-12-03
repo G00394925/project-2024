@@ -31,6 +31,7 @@ const musicSchema = new mongoose.Schema({
 
 const musicModel = new mongoose.model('mymusic', musicSchema);
 
+// Aquire the data from Mongo
 app.get('/api/music', async(req, res) => {
     const music = await musicModel.find({});
     res.status(200).json({music})
@@ -46,6 +47,17 @@ app.post('/api/music', async (req, res)=>{
 
     res.status(201).json({message: 'Album created', music:newMusic});
 })
+
+// Retrieve object details by ID for editing
+app.get('/api/music/:id', async (req, res) => {
+    let music = await musicModel.findById({ _id: req.params.id });
+    res.send(music);
+});
+
+app.put('/api/music/:id', async (req, res) => {
+    let music = await musicModel.findByIdAndUpdate(req.params.id, req.body, { new: true });
+    res.send(music);
+});
 
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);

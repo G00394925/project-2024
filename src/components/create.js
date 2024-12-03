@@ -18,8 +18,8 @@ const Create = () => {
 
     }
     return(
-        <div margin>
-            <h1>This is where the music is created</h1>
+        <div>
+            <br />
             <form onSubmit={handleSubmit} className="card m-4 mx-auto login-styling bg-secondary" style={{width: 400, padding: 25}}>
 
                 <div className="form-group">

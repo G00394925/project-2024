@@ -17,8 +17,8 @@ const View = () => {
             });
     },[]);
     return(
-        <div>
-            <h1>This is where the music happens</h1>
+        <div style={{marginLeft: 15}}>
+            <br/>
             <Music mymusic={music} />
         </div>
     );
