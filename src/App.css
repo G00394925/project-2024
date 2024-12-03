@@ -39,7 +39,7 @@
 
 .card-container {
   display: flex; /* Flex layout allows for display of elements next to each other */
-  flex-wrap: wrap; /* Cards are place on new row if there's not enough column space */
+  flex-wrap: wrap; /* The Cards are automatically adjusted if there is not enough space */
   gap: 10px;
 }
 

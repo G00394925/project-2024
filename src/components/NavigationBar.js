@@ -10,7 +10,7 @@ const NavigationBar = () => {
             <Navbar.Brand className="nav__logo" href="/" font="pacifico-regular">The Music Catalogue</Navbar.Brand>
             <Nav className="me-auto">
                 <Nav.Link href='/view'>View your tunes</Nav.Link>
-                <Nav.Link href='/create'>Add something</Nav.Link>
+                <Nav.Link href='/create'>Add an album</Nav.Link>
             </Nav>
           </Container>
       </Navbar>

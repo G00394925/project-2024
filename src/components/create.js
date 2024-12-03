@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom"; // Allows the return of a function that enables navigation to different routes programmatically 
 
 const Create = () => {
 
@@ -7,13 +8,18 @@ const Create = () => {
     const [year, setYear] = useState('')
     const [artist, setArtist] = useState('')
     const [cover, setCover] = useState('')
+    const navigate = useNavigate()
 
     const handleSubmit = (e) => {
         e.preventDefault(); 
-        const music = {title, year, artist, cover}; 
+        const music = {title, year, artist, cover}; // Set object properties 
         console.log(music)
-        axios.post('http://localhost:4000/api/music', music)
-            .then((res) => {console.log(res.data)})
+
+        axios.post('http://localhost:4000/api/music', music) // Send new object to API
+            .then((res) => {
+                console.log(res.data)
+                navigate('/view') // Automatically navigate to view page
+            })
             .catch()
 
     }

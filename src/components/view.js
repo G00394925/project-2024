@@ -4,7 +4,7 @@ import axios from "axios";
 
 const View = () => {
 
-    const [music, setMusic] = useState([]);
+    const [music, setMusic] = useState([]); 
 
     // Gets object data from server and updates the state 
     const ReloadData = () => { 

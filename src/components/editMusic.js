@@ -2,7 +2,7 @@ import React from 'react';
 import { useParams } from 'react-router-dom'; // Allows for the access of the dynamic parameters on the current route
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useNavigate } from "react-router-dom"; // Allows the return of a function that enables navigation to different routes programmatically 
+import { useNavigate } from "react-router-dom";  
 
 export default function EditMusic(props) {
   let { id } = useParams();

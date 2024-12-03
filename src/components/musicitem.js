@@ -13,9 +13,9 @@ const MusicItem = (props) => {
     const handleDelete = (e) => {
         e.preventDefault()
 
-        axios.delete('http://localhost:4000/api/music/' + props.mymusic._id) // Delete object
+        axios.delete('http://localhost:4000/api/music/' + props.mymusic._id) // Delete object from API
             .then(() => {
-                props.Reload(); // Reload page 
+                props.Reload(); // Reloads the page after deleting object
             })
             .catch((error) => {
                 console.error("Error deleting album: ", error)
