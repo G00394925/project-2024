@@ -48,3 +48,9 @@
   background-color: #7F7F7F;
 }
 
+.favourite-box{
+  position: absolute;
+  top: 5px;
+  left: 5px;
+}
+

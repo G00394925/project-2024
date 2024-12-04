@@ -1,15 +1,29 @@
-import { useEffect } from "react";
+import { useEffect, useState, useRef } from "react";
 import Card from "react-bootstrap/Card";
 import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import axios from "axios";
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
+import Tooltip from 'react-bootstrap/Tooltip';
+
 
 const MusicItem = (props) => {
 
     useEffect(() => {
         console.log("Music Item: ", props.mymusic);
     }, [props.mymusic])
- 
+
+    const renderTooltip = (props) => {
+       return (
+            <Tooltip id = "button-tooltip" {...props}>
+                Favourite this album
+            </Tooltip>
+       )
+    }
+
+    const [showDelete, setShowDelete] = useState(false);
+    const target = useRef(null);
+
     const handleDelete = (e) => {
         e.preventDefault()
 
@@ -23,6 +37,11 @@ const MusicItem = (props) => {
     }
     return(
         <Card className="bg-secondary" style={{ color: '#c7c7c7', width: '16rem', margin: 10, padding: 2}}>
+            
+            <OverlayTrigger placement="top" delay={{ show: 250, hide: 400}} overlay={ renderTooltip }>
+            <input type="checkbox" className="favourite-box" />
+            </OverlayTrigger>
+            
             <img src={props.mymusic.cover} alt={props.mymusic.title} style={{borderRadius: 5}}></img>
             <Card.Title style={{ marginLeft: 5, marginTop: 5}}>{props.mymusic.title}</Card.Title>
             <Card.Subtitle style={{ marginLeft: 5}}>
