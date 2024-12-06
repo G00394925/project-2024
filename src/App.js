@@ -5,6 +5,8 @@ import Create from './components/create';
 import View from './components/view';
 import Edit from './components/editMusic';
 import './App.css';
+import '@fortawesome/fontawesome-free/css/all.css';
+
 
 function App() {
   return (
