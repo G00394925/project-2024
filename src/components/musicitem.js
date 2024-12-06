@@ -17,6 +17,9 @@ const MusicItem = (props) => {
         console.log("Music Item: ", props.mymusic);
     }, [props.mymusic])
 
+    const [isDisabled, setDisabled] = useState(false)
+    
+
     const renderTooltip = (props) => {
        return (
             <Tooltip id = "button-tooltip" {...props}>
@@ -24,6 +27,7 @@ const MusicItem = (props) => {
             </Tooltip>
        )
     }
+
 
     const handleDelete = (e) => {
         e.preventDefault()
@@ -40,7 +44,7 @@ const MusicItem = (props) => {
         <Card className="bg-secondary" style={{ color: '#c7c7c7', width: '16rem', margin: 10, padding: 2}}>
             
             <OverlayTrigger placement="top" delay={{ show: 250, hide: 400}} overlay={ renderTooltip }>
-                <Checkbox style={{color: "#fc425b", position: "absolute", left: 5, top: 3, }} size="large" icon={<FavoriteBorder />} checkedIcon={<Favorite />}></Checkbox>
+                <Checkbox style={{color: "#fc425b", position: "absolute", left: 5, top: 3, }} size="large" icon={<FavoriteBorder />} checkedIcon={<Favorite />} onChange={() => setDisabled(true)}></Checkbox>
             </OverlayTrigger>       
             
             <img src={props.mymusic.cover} alt={props.mymusic.title} style={{borderRadius: 5}}></img>
@@ -54,7 +58,7 @@ const MusicItem = (props) => {
             
             <div class="btn-group">
                 <Link className="btn" to={"/editMusic/" + props.mymusic._id} style={{margin:10, padding: 5, color: 'white', borderColor: 'black', borderRadius: 5, backgroundColor:'#2f353b'}}>Edit</Link>
-                <Button className="btn btn-danger" style={{margin: 10, padding: 5, borderRadius: 5}} onClick={handleDelete}>Delete</Button>
+                <Button className="btn btn-danger" style={{margin: 10, padding: 5, borderRadius: 5}} disabled={isDisabled} onClick={handleDelete}>Delete</Button>
             </div>
         </Card>
     )
