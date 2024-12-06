@@ -44,7 +44,7 @@ const MusicItem = (props) => {
         <Card className="bg-secondary" style={{ color: '#c7c7c7', width: '16rem', margin: 10, padding: 2}}>
             
             <OverlayTrigger placement="top" delay={{ show: 250, hide: 400}} overlay={ renderTooltip }>
-                <Checkbox style={{color: "#fc425b", position: "absolute", left: 5, top: 3, }} size="large" icon={<FavoriteBorder />} checkedIcon={<Favorite />} onChange={() => setDisabled(true)}></Checkbox>
+                <Checkbox style={{color: "#fc425b", position: "absolute", left: 5, top: 3, }} size="large" icon={<FavoriteBorder />} checkedIcon={<Favorite />} onChange={() => setDisabled(!isDisabled)}></Checkbox>
             </OverlayTrigger>       
             
             <img src={props.mymusic.cover} alt={props.mymusic.title} style={{borderRadius: 5}}></img>
