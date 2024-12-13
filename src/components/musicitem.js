@@ -11,7 +11,7 @@ import Favorite from '@mui/icons-material/Favorite';
 
 const MusicItem = (props) => {
     
-    const [isDisabled, setDisabled] = useState(false) // To disable the delete button when an item is favourited
+    const [isDisabled, setDisabled] = useState(props.mymusic.favorite) // To disable the delete button when an item is favourited
     const [favorite, setFavorite] = useState(props.mymusic.favorite) // Initialised to current favorite status of music item
 
     useEffect(() => {
