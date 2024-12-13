@@ -27,7 +27,7 @@ const musicSchema = new mongoose.Schema({
     year:String,
     artist:String,
     cover:String,
-    favorite:{type: Boolean, default: false}
+    favorite:{type: Boolean, default: false} // 'favorite' is false by default for new items 
 });
 
 const musicModel = new mongoose.model('mymusic', musicSchema);

@@ -12,7 +12,7 @@ const Create = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault(); 
-        const music = {title, year, artist, cover}; // Set object properties 
+        const music = {title, year, artist, cover}; // Set object properties once submit button clicked
         console.log(music)
 
         axios.post('http://localhost:4000/api/music', music) // Send new object to API

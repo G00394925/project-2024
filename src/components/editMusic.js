@@ -13,9 +13,10 @@ export default function EditMusic(props) {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get('http://localhost:4000/api/music/' + id) // Get ID of object
+    axios.get('http://localhost:4000/api/music/' + id) // Get data by ID
         .then((response) => {
-            setTitle(response.data.title) // Get current values
+            // Set current values
+            setTitle(response.data.title) 
             setYear(response.data.year)
             setArtist(response.data.artist)
             setCover(response.data.cover)

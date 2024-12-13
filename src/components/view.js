@@ -32,7 +32,7 @@ const View = () => {
     return(
         <div style={{marginLeft: 15}}>
             <br/>
-            <Music mymusic={music} ReloadData = {ReloadData}/>
+            <Music mymusic={music} ReloadData = {ReloadData}/> {/* Data is passed to Music component  */}
         </div>
     );
 }

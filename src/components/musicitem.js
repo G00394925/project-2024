@@ -11,19 +11,20 @@ import Favorite from '@mui/icons-material/Favorite';
 
 const MusicItem = (props) => {
     
-    const [isDisabled, setDisabled] = useState(props.mymusic.favorite) // To disable the delete button when an item is favourited
-    const [favorite, setFavorite] = useState(props.mymusic.favorite) // Initialised to current favorite status of music item
+    // Initialised to current favorite state of music item
+    const [isDisabled, setDisabled] = useState(props.mymusic.favorite)
+    const [favorite, setFavorite] = useState(props.mymusic.favorite) 
 
     useEffect(() => {
         console.log("Music Item: ", props.mymusic);
     }, [props.mymusic])
 
 
-    // A small bit of text that appears as you hover over the favourite icon
+    // A small bit of text that appears when you hover over the favourite icon
     const renderTooltip = (props) => {
        return (
             <Tooltip id = "button-tooltip" {...props}>
-                Favourite this album
+                Toggle Favorite
             </Tooltip>
        )
     }
@@ -33,7 +34,7 @@ const MusicItem = (props) => {
         setFavorite(favoriteChanged)
         setDisabled(favoriteChanged) // Delete button disabled if favorite
 
-
+        // Save the state of the favorite button to the music item
         axios.put(`http://localhost:4000/api/music/${props.mymusic._id}`, {
             ...props.mymusic,
             favorite: favoriteChanged,
@@ -59,8 +60,9 @@ const MusicItem = (props) => {
     }
     return(
         <Card className="bg-secondary" style={{ color: '#c7c7c7', width: '16rem', margin: 10, padding: 2}}>
-            
-            <OverlayTrigger placement="top" delay={{ show: 250, hide: 400}} overlay={ renderTooltip }>
+
+            {/* Overlay the Tooltip text over the 'favorite' checkbox */}
+            <OverlayTrigger placement="top" delay={{ show: 100, hide: 50}} overlay={ renderTooltip }>
                 <Checkbox style={{color: "#fc425b", position: "absolute", left: 5, top: 3, }} size="large" icon={<FavoriteBorder />} checkedIcon={<Favorite />} checked={favorite} onChange={toggleFavorite}></Checkbox>
             </OverlayTrigger>       
             

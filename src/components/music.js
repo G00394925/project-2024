@@ -2,8 +2,8 @@ import MusicItem from './musicitem';
 
 const Music = (props) => {
     return (
-        // 'card-container' class uses a flex layout for each object card
-        <div className="card-container"> 
+        <div className="card-container">
+            {/* Iterates through the data array and each object is passed to MusicItem as properties  */}
             {props.mymusic.map((music) => (
               <MusicItem mymusic={music} key={music._id} Reload = {props.ReloadData}/>
             ))}
