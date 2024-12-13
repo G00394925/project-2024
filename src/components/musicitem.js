@@ -66,7 +66,7 @@ const MusicItem = (props) => {
                 <Checkbox style={{color: "#fc425b", position: "absolute", left: 5, top: 3, }} size="large" icon={<FavoriteBorder />} checkedIcon={<Favorite />} checked={favorite} onChange={toggleFavorite}></Checkbox>
             </OverlayTrigger>       
             
-            <img src={props.mymusic.cover} alt={props.mymusic.title} style={{borderRadius: 5}}></img>
+            <img src={props.mymusic.cover} alt={props.mymusic.title} style={{borderRadius: 5, width: 250, height: 250}}></img>
 
             <Card.Title style={{ marginLeft: 5, marginTop: 5}}>{props.mymusic.title}</Card.Title>
             <Card.Subtitle style={{ marginLeft: 5}}>
