@@ -8,18 +8,18 @@ import Tooltip from 'react-bootstrap/Tooltip';
 import Checkbox from '@mui/material/Checkbox';
 import FavoriteBorder from '@mui/icons-material/FavoriteBorder';
 import Favorite from '@mui/icons-material/Favorite';
-import { pink } from "@mui/material/colors";
-
 
 const MusicItem = (props) => {
+    
+    const [isDisabled, setDisabled] = useState(false) // To disable the delete button when an item is favourited
+    const [favorite, setFavorite] = useState(props.mymusic.favorite) // Initialised to current favorite status of music item
 
     useEffect(() => {
         console.log("Music Item: ", props.mymusic);
     }, [props.mymusic])
 
-    const [isDisabled, setDisabled] = useState(false)
-    
 
+    // A small bit of text that appears as you hover over the favourite icon
     const renderTooltip = (props) => {
        return (
             <Tooltip id = "button-tooltip" {...props}>
@@ -28,6 +28,23 @@ const MusicItem = (props) => {
        )
     }
 
+    const toggleFavorite = () => {
+        let favoriteChanged = !favorite
+        setFavorite = favoriteChanged
+        setDisabled = favoriteChanged // Delete button disabled if favorite
+
+
+        axios.put(`http://localhost:4000/api/music/${props.mymusic._id}`, {
+            ...props.mymusic,
+            favorite: favoriteChanged,
+        })
+        .then(() => {
+            console.log("Album favorited")
+        })
+        .catch((error) => {
+            console.log((error))
+        })
+    }
 
     const handleDelete = (e) => {
         e.preventDefault()
@@ -44,7 +61,7 @@ const MusicItem = (props) => {
         <Card className="bg-secondary" style={{ color: '#c7c7c7', width: '16rem', margin: 10, padding: 2}}>
             
             <OverlayTrigger placement="top" delay={{ show: 250, hide: 400}} overlay={ renderTooltip }>
-                <Checkbox style={{color: "#fc425b", position: "absolute", left: 5, top: 3, }} size="large" icon={<FavoriteBorder />} checkedIcon={<Favorite />} onChange={() => setDisabled(!isDisabled)}></Checkbox>
+                <Checkbox style={{color: "#fc425b", position: "absolute", left: 5, top: 3, }} size="large" icon={<FavoriteBorder />} checkedIcon={<Favorite />} checked={favorite} onChange={toggleFavorite}></Checkbox>
             </OverlayTrigger>       
             
             <img src={props.mymusic.cover} alt={props.mymusic.title} style={{borderRadius: 5}}></img>

@@ -18,7 +18,7 @@ const Create = () => {
         axios.post('http://localhost:4000/api/music', music) // Send new object to API
             .then((res) => {
                 console.log(res.data)
-                navigate('/view') // Automatically navigate to view page
+                navigate('/view') // Automatically navigate to view page once finished
             })
             .catch()
 
