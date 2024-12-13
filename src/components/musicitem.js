@@ -29,9 +29,9 @@ const MusicItem = (props) => {
     }
 
     const toggleFavorite = () => {
-        let favoriteChanged = !favorite
-        setFavorite = favoriteChanged
-        setDisabled = favoriteChanged // Delete button disabled if favorite
+        const favoriteChanged = !favorite
+        setFavorite(favoriteChanged)
+        setDisabled(favoriteChanged) // Delete button disabled if favorite
 
 
         axios.put(`http://localhost:4000/api/music/${props.mymusic._id}`, {
