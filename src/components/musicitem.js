@@ -29,6 +29,7 @@ const MusicItem = (props) => {
        )
     }
 
+    // Favorite button clicked
     const toggleFavorite = () => {
         const favoriteChanged = !favorite
         setFavorite(favoriteChanged)
@@ -47,9 +48,9 @@ const MusicItem = (props) => {
         })
     }
 
+    // Delete button clicked
     const handleDelete = (e) => {
         e.preventDefault()
-
         axios.delete('http://localhost:4000/api/music/' + props.mymusic._id) // Delete object from API
             .then(() => {
                 props.Reload(); // Reloads the page after deleting object
